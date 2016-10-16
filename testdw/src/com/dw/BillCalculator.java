@@ -16,6 +16,11 @@ public class BillCalculator {
 		//PhoneNumber HH:MM:SS
 		String[] data = {"7594957403 01:02:01", "7594957401 00:06:01", "7594957403 00:02:01",  
 				"7594957401 00:02:01", "7594957401 00:02:01", "7594957408 00:02:01"};
+				
+		if(data.length == 0)
+			return;
+				
+				
 		List<String> phoneList = Arrays.asList(data);
 		// 0 -3 minutes 3p per min
 		// 3 -5 minutes 5p per min
