@@ -14,13 +14,13 @@ public class BillCalculator {
 	public static void main(String[] args) {
 
 		//PhoneNumber HH:MM:SS
-		String[] data = {"7594957403 01:02:01", "7594957401 00:06:01", "7594957403 00:02:01",  
-				"7594957401 00:02:01", "7594957401 00:02:01", "7594957408 00:02:01"};
-				
+		//String[] data = {"7594957403 01:02:01", "7594957401 00:06:01", "7594957403 00:02:01",  
+				//"7594957401 00:02:01", "7594957401 00:02:01", "7594957408 00:02:01"};
+		String[] data = {"7594957403 00:03:00","7594957403 00:01:01", "7594957401 00:01:02", "7594957401 00:01:00"};
+		
 		if(data.length == 0)
-			return;
-				
-				
+			return; 
+		
 		List<String> phoneList = Arrays.asList(data);
 		// 0 -3 minutes 3p per min
 		// 3 -5 minutes 5p per min
@@ -58,12 +58,12 @@ public class BillCalculator {
 			int computedPrice = computePrice(durationInSeconds);
 			if(!costMap.containsKey(row[0])){
 				costMap.put(row[0], computedPrice);
-				totalPrice+=computedPrice;
 			}else{
 				int addedPrice = costMap.get(row[0]) + computedPrice;
 				costMap.replace(row[0], addedPrice);
-				totalPrice+=addedPrice;
 			}
+			totalPrice+=computedPrice;
+
 		}
 		
 		//find the phone number which spoke for maximum time
